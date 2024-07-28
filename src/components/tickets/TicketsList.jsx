@@ -27,7 +27,7 @@ export default function TicketsList() {
             <th scope="row">{t.id}</th>
             <td>{t.description}</td>
             <td>{t.emergency ? "yes" : "no"}</td>
-            <td>{t.dateCompleted?.split("T")[0] || "Incomplete"}</td>
+            <td>{t.dateComplete?.split("T")[0] || "Incomplete"}</td>
             <td>
               <Link to={`${t.id}`}>Details</Link>
             </td>

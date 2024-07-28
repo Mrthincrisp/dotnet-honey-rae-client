@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Table } from "reactstrap";
-//import { getServiceTicket } from "../../data/serviceTicketsData";
+import { getServiceTicketID } from "../../data/serviceTicketsData";
 
 export default function TicketDetails() {
   const { id } = useParams();
@@ -9,6 +9,9 @@ export default function TicketDetails() {
   const [ticket, setTicket] = useState(null);
 
   //add useEffect here to get the ticket details from the API
+  useEffect(() => {
+    getServiceTicketID(id).then(setTicket);
+  },[])
 
   if (!ticket) {
     return null;
@@ -35,7 +38,7 @@ export default function TicketDetails() {
         </tr>
         <tr>
           <th scope="row">Completed?</th>
-          <td>{ticket.dateCompleted?.split("T")[0] || "Incomplete"}</td>
+          <td>{ticket.dateComplete?.split("T")[0] || "Incomplete"}</td>
         </tr>
       </tbody>
     </Table>
