@@ -1,12 +1,33 @@
-const _apiUrl = "/api/servicetickets";
+const Url = "/api/servicetickets";
 
 export const getServiceTickets = () => {
-  return fetch(_apiUrl).then((r) => r.json());
+  return fetch(Url).then((r) => r.json());
 };
 
 export const getServiceTicketID = (id) => {
-  console.warn("id", id)
-  const URL = `/api/servicetickets/${id}`;
-  return fetch(URL).then((r) => r.json());
-}
-//export a function here that gets a ticket by id
+    return fetch(`${Url}/${id}`).then((r) => r.json());
+};
+
+export const createTicket = async (payload) => {
+  const response = await fetch(Url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload)
+  });
+  const data = await response.json();
+  return data;
+};
+
+export const putTicket = async (payload) => {
+  const response = await fetch(Url, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload)
+  });
+  const data = await response.json();
+  return data;
+};

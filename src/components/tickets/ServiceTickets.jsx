@@ -1,5 +1,4 @@
 import { Link, Outlet } from "react-router-dom";
-import { Button } from "reactstrap";
 
 export default function ServiceTickets() {
   return (
