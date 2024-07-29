@@ -11,7 +11,7 @@ export default function TicketDetails() {
   //add useEffect here to get the ticket details from the API
   useEffect(() => {
     getServiceTicketID(id).then(setTicket);
-  },[])
+  },[id])
 
   if (!ticket) {
     return null;
@@ -20,10 +20,10 @@ export default function TicketDetails() {
   return (
     <Table>
       <tbody>
-        <tr>
+        {/* <tr>
           <th scope="row">Customer</th>
           <td>{ticket.customer.name}</td>
-        </tr>
+        </tr> */}
         <tr>
           <th scope="row">Description</th>
           <td>{ticket.description}</td>
