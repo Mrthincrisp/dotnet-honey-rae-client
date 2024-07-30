@@ -1,5 +1,6 @@
+import React from "react";
 import { useEffect, useState } from "react";
-import { Table } from "reactstrap";
+import { Button, Table } from "reactstrap";
 import { Link } from "react-router-dom";
 import { getEmployees } from "../../data/employeeAPI";
 
@@ -13,6 +14,7 @@ export default function EmployeeList() {
   }, []);
 
   return (
+    <>
     <Table>
       <thead>
         <tr>
@@ -31,9 +33,13 @@ export default function EmployeeList() {
             <td>
               <Link to={`${e.id}`}>Details</Link>
             </td>
+            <td>
+              <Button variant="danger">Delete</Button>
+            </td>
           </tr>
         ))}
       </tbody>
     </Table>
+        </>
   );
 }

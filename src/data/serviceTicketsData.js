@@ -31,3 +31,12 @@ export const putTicket = async (payload) => {
   const data = await response.json();
   return data;
 };
+
+export const deleteTicket = async (id) => {
+  fetch(`${Url}/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  })
+}

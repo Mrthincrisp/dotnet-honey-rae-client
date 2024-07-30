@@ -28,7 +28,7 @@ export default function employeeDetails() {
           <th scope="row">Specialty</th>
           <td>{employee.specialty}</td>
         </tr>
-        {/* {employee.serviceTickets ? (
+        {employee.serviceTickets ? (
           employee.serviceTickets.map(ticket => (
             <>
               <tr>
@@ -50,7 +50,7 @@ export default function employeeDetails() {
             <th scope="row">Service Tickets</th>
             <td>No service tickets available</td>
           </tr>
-        )} */}
+        )}
       </tbody>
     </Table>
   );

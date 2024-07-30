@@ -1,8 +1,10 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import PropTypes from 'prop-types';
 import { getEmployees } from "../../data/employeeAPI";
 import { getCustomers } from "../../data/customerAPI";
 import { createTicket } from "../../data/serviceTicketsData";
+import { useNavigate } from "react-router-dom";
 
 const initialState = {
   customerId: 0,
@@ -15,6 +17,7 @@ export default function CreateTicket({ obj }) {
   const [formInput, setFormInput] = useState(initialState);
   const [customers, setCustomer] = useState([]);
   const [employees, setEmployees] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getEmployees().then(setEmployees);
@@ -26,14 +29,8 @@ export default function CreateTicket({ obj }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (obj.id) {
-      console.warn("update selected");
-    } else {
-      console.warn("create selected");
-      createTicket(formInput).then(() => {
-        route.push('/tickets');
-      });
-    };
+      createTicket(formInput);
+      navigate("/tickets/");
   };
  
   const handleChange = (e) => {
@@ -119,7 +116,7 @@ export default function CreateTicket({ obj }) {
   );
 }
 
-CreateTicket.proptypes = {
+CreateTicket.propTypes = {
   obj: PropTypes.shape({
     id: PropTypes.int,
     customerId: PropTypes.int,
