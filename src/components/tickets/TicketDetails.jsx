@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Table } from "reactstrap";
@@ -20,10 +21,10 @@ export default function TicketDetails() {
   return (
     <Table>
       <tbody>
-        {/* <tr>
+        <tr>
           <th scope="row">Customer</th>
           <td>{ticket.customer.name}</td>
-        </tr> */}
+        </tr>
         <tr>
           <th scope="row">Description</th>
           <td>{ticket.description}</td>
