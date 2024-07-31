@@ -118,9 +118,9 @@ export default function CreateTicket({ obj }) {
 
 CreateTicket.propTypes = {
   obj: PropTypes.shape({
-    id: PropTypes.int,
-    customerId: PropTypes.int,
-    employeeId: PropTypes.int,
+    id: PropTypes.number,
+    customerId: PropTypes.number,
+    employeeId: PropTypes.number,
     description: PropTypes.string,
     emergency: PropTypes.bool,
   })

@@ -20,16 +20,15 @@ export const createTicket = async (payload) => {
   return data;
 };
 
-export const putTicket = async (payload) => {
-  const response = await fetch(Url, {
+export const putTicket = async (id,payload) => {
+  const response = await fetch(`${Url}/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(payload)
   });
-  const data = await response.json();
-  return data;
+  return response
 };
 
 export const deleteTicket = async (id) => {
